@@ -58,6 +58,10 @@ export default class Start extends Component {
 
             {/* Start Chatting button (sends user to chat screen) */}
             <TouchableOpacity
+              accessible={true}
+              accessibilityLabel="Start Chatting"
+              accessibilityHint="Go to the next screen to start chatting."
+              accessibilityRole="button"
               style={styles.startChatButton}
               underlayColor='#fff'
               onPress={() => this.props.navigation.navigate('Chat', { userName: this.state.userName, userBackgroundColor: this.state.userBackgroundColor })}

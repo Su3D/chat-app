@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, TextInput, Button, Alert, ScrollView } from 're
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
+
 // import the screens
 import Start from './components/Start';
 import Chat from './components/Chat';
