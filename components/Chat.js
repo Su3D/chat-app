@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, View, Text, AsyncStorage, NetInfo } from 'react-native';
 import { GiftedChat, Bubble, InputToolbar } from 'react-native-gifted-chat';
+import MapView from 'react-native-maps';
 // import fix for Android keyboards
 import KeyboardSpacer from 'react-native-keyboard-spacer'
+
+//import CustomActions 
+import CustomActions from './CustomActions';
 
 //import firebase/firestore
 const firebase = require('firebase');
@@ -68,6 +72,8 @@ export default class Chat extends Component {
         text: data.text,
         createdAt: data.createdAt.toDate(),
         user: data.user,
+        image: data.image || '',
+        location: data.location || null,
       });
     });
     this.setState({
@@ -83,6 +89,8 @@ export default class Chat extends Component {
       createdAt: this.state.messages[0].createdAt,
       user: this.state.messages[0].user,
       uid: this.state.uid,
+      image: this.state.messages[0].image || '',
+      location: this.state.messages[0].location || null,
     });
   }
 
@@ -216,6 +224,33 @@ export default class Chat extends Component {
     }
   }
 
+  renderCustomActions = (props) => {
+    return <CustomActions {...props} />;
+  };
+
+  renderCustomView(props) {
+    const { currentMessage } = props;
+    if (currentMessage.location) {
+      return (
+        <MapView
+          style={{
+            width: 150,
+            height: 100,
+            borderRadius: 13,
+            margin: 3
+          }}
+          region={{
+            latitude: currentMessage.location.latitude,
+            longitude: currentMessage.location.longitude,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}
+        />
+      );
+    }
+    return null;
+  }
+
 
   //render components
   render() {
@@ -227,6 +262,8 @@ export default class Chat extends Component {
         <GiftedChat
           renderInputToolbar={this.renderInputToolbar.bind(this)}
           renderBubble={this.renderBubble}
+          renderActions={this.renderCustomActions.bind(this)}
+          renderCustomView={this.renderCustomView}
           messages={this.state.messages}
           //inverted={false}
           onSend={messages => this.onSend(messages)}
