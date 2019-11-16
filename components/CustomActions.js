@@ -14,16 +14,20 @@ import "firebase/firestore";
 // create CustomActions class
 export default class CustomActions extends Component {
 
+  //let user pick an image from their device's image library
   pickImage = async () => {
     try {
+      //get Permission to access CAMERA_ROLL
       const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
-
+      //IF permission is granted contiue
       if (status === 'granted') {
+        // let user pick an image
         let result = await ImagePicker.launchImageLibraryAsync({
-          mediaTypes: ImagePicker.MediaTypeOptions.Images,
+          mediaTypes: ImagePicker.MediaTypeOptions.Images, //only images are allowed
         }).catch(error => console.log(error));
-
+        //check if user cancelled image selection
         if (!result.cancelled) {
+          //if not send picked image
           const imageUrl = await this.uploadImage(result.uri);
           this.props.onSend({ image: imageUrl })
         }
