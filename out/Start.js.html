@@ -1,4 +1,32 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Start.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Start.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
 * @class Start
 * @requires react
 * @requires react-native
@@ -26,50 +54,50 @@ export default class Start extends Component {
     */
     return (
       //overall View container
-      <View style={styles.container}>
-        {/* background image & flexbox */}
-        <ImageBackground source={require("../assets/BackgroundImage.png")} style={styles.backgroundImgContainer}>
+      &lt;View style={styles.container}>
+        {/* background image &amp; flexbox */}
+        &lt;ImageBackground source={require("../assets/BackgroundImage.png")} style={styles.backgroundImgContainer}>
 
           {/* app title */}
-          <Text style={styles.appTitle}>Chatter Box</Text>
+          &lt;Text style={styles.appTitle}>Chatter Box&lt;/Text>
 
           {/* login container */}
-          <View style={styles.logInContainer}>
+          &lt;View style={styles.logInContainer}>
             {/* user name text input */}
-            <TextInput
+            &lt;TextInput
               style={styles.userNameInput}
               onChangeText={(userName) => this.setState({ userName })}
               value={this.state.userName}
               placeholder='Your Name...'
             />
             {/* Choose Background Color: */}
-            <Text style={styles.choseBackgroundColor}>Choose Background Color:</Text>
+            &lt;Text style={styles.choseBackgroundColor}>Choose Background Color:&lt;/Text>
             {/* user background color selections */}
-            <View style={styles.backgroundColorsContainer}>
+            &lt;View style={styles.backgroundColorsContainer}>
               {/* black */}
-              <TouchableOpacity
+              &lt;TouchableOpacity
                 onPress={() => this.setState({ userBackgroundColor: '#090C08' })}
                 style={[styles.backgroundColors, styles.black]}
               />
               {/* purple */}
-              <TouchableOpacity
+              &lt;TouchableOpacity
                 onPress={() => this.setState({ userBackgroundColor: '#474056' })}
                 style={[styles.backgroundColors, styles.purple]}
               />
               {/* gray */}
-              <TouchableOpacity
+              &lt;TouchableOpacity
                 onPress={() => this.setState({ userBackgroundColor: '#8A95A5' })}
                 style={[styles.backgroundColors, styles.gray]}
               />
               {/* green */}
-              <TouchableOpacity
+              &lt;TouchableOpacity
                 onPress={() => this.setState({ userBackgroundColor: '#B9C6AE' })}
                 style={[styles.backgroundColors, styles.green]}
               />
-            </View>{/* backgroundColorsContainer END */}
+            &lt;/View>{/* backgroundColorsContainer END */}
 
             {/* Start Chatting button (sends user to chat screen) */}
-            <TouchableOpacity
+            &lt;TouchableOpacity
               accessible={true}
               accessibilityLabel="Start Chatting"
               accessibilityHint="Go to the next screen to start chatting."
@@ -78,11 +106,11 @@ export default class Start extends Component {
               underlayColor='#fff'
               onPress={() => this.props.navigation.navigate('Chat', { userName: this.state.userName, userBackgroundColor: this.state.userBackgroundColor })}
             >
-              <Text style={styles.startChattingText}>Start Chatting</Text>
-            </TouchableOpacity>
-          </View>{/* login container END */}
-        </ImageBackground>
-      </View >//overall View container END
+              &lt;Text style={styles.startChattingText}>Start Chatting&lt;/Text>
+            &lt;/TouchableOpacity>
+          &lt;/View>{/* login container END */}
+        &lt;/ImageBackground>
+      &lt;/View >//overall View container END
     );
   }
 };
@@ -165,4 +193,27 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     textAlign: 'center',
   },
-});
+});</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Chat.html">Chat</a></li><li><a href="CustomActions.html">CustomActions</a></li><li><a href="Start.html">Start</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addMessage">addMessage</a></li><li><a href="global.html#componentDidMount">componentDidMount</a></li><li><a href="global.html#deleteMessage">deleteMessage</a></li><li><a href="global.html#getLocation">getLocation</a></li><li><a href="global.html#getMessages">getMessages</a></li><li><a href="global.html#onCollectionUpdate">onCollectionUpdate</a></li><li><a href="global.html#pickImage">pickImage</a></li><li><a href="global.html#renderBubblesetsthebackgroundcolorofmessagebubbles">renderBubble
+sets the background color of message bubbles</a></li><li><a href="global.html#renderCustomView">renderCustomView</a></li><li><a href="global.html#renderInputToolbar">renderInputToolbar</a></li><li><a href="global.html#saveMessages">saveMessages</a></li><li><a href="global.html#setUser">setUser</a></li><li><a href="global.html#styles">styles</a></li><li><a href="global.html#takePhoto">takePhoto</a></li><li><a href="global.html#uploadImage">uploadImage</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Sat Nov 16 2019 12:47:38 GMT-0500 (Eastern Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

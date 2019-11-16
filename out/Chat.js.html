@@ -1,4 +1,32 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Chat.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Chat.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
 * @class Chat
 * @requires react
 * @requires react-native
@@ -168,7 +196,7 @@ export default class Chat extends Component {
   * loads all messages from async storage
   * @function getMessages
   * @async
-  * @return {Promise<string>} the data from the storage
+  * @return {Promise&lt;string>} the data from the storage
   */
   getMessages = async () => {
     let messages = '';
@@ -186,7 +214,7 @@ export default class Chat extends Component {
   * saves messages to AsyncStorage
   * @function saveMessages
   * @async
-  * @return {Promise<string>} The data will be saved to storage
+  * @return {Promise&lt;string>} The data will be saved to storage
   */
   saveMessages = async () => {
     try {
@@ -201,7 +229,7 @@ export default class Chat extends Component {
   * not currently used in app
   * @function deleteMessage
   * @async
-  * @return {Promise<string>} The data will deleted from storage
+  * @return {Promise&lt;string>} The data will deleted from storage
   */
   deleteMessages = async () => {
     try {
@@ -303,7 +331,7 @@ export default class Chat extends Component {
   */
   renderBubble(props) {
     return (
-      <Bubble
+      &lt;Bubble
         {...props}
         wrapperStyle={{ right: { backgroundColor: '#ff4d03' }, left: { backgroundColor: '#aa0975' } }}
       />
@@ -318,7 +346,7 @@ export default class Chat extends Component {
     if (this.state.isConnected == false) {
     } else {
       return (
-        <InputToolbar
+        &lt;InputToolbar
           {...props}
         />
       )
@@ -329,7 +357,7 @@ export default class Chat extends Component {
   * CustomActions from the CustomActions component
   */
   renderCustomActions = (props) => {
-    return <CustomActions {...props} />;
+    return &lt;CustomActions {...props} />;
   };
 
   /**
@@ -339,7 +367,7 @@ export default class Chat extends Component {
     const { currentMessage } = props;
     if (currentMessage.location) {
       return (
-        <MapView
+        &lt;MapView
           style={{
             width: 150,
             height: 100,
@@ -367,9 +395,9 @@ export default class Chat extends Component {
     return (
       //overall View container
       //user's background color choice
-      <View style={[styles.container, { backgroundColor: this.props.navigation.state.params.userBackgroundColor }]}>
+      &lt;View style={[styles.container, { backgroundColor: this.props.navigation.state.params.userBackgroundColor }]}>
 
-        <GiftedChat
+        &lt;GiftedChat
           renderInputToolbar={this.renderInputToolbar.bind(this)}
           renderBubble={this.renderBubble}
           renderActions={this.renderCustomActions.bind(this)}
@@ -380,8 +408,8 @@ export default class Chat extends Component {
           user={this.state.user}
         />
 
-        {Platform.OS === 'android' ? <KeyboardSpacer /> : null}
-      </View>
+        {Platform.OS === 'android' ? &lt;KeyboardSpacer /> : null}
+      &lt;/View>
     );
   }
 };
@@ -395,4 +423,27 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '100%',
   }
-});
+});</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Chat.html">Chat</a></li><li><a href="CustomActions.html">CustomActions</a></li><li><a href="Start.html">Start</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addMessage">addMessage</a></li><li><a href="global.html#componentDidMount">componentDidMount</a></li><li><a href="global.html#deleteMessage">deleteMessage</a></li><li><a href="global.html#getLocation">getLocation</a></li><li><a href="global.html#getMessages">getMessages</a></li><li><a href="global.html#onCollectionUpdate">onCollectionUpdate</a></li><li><a href="global.html#pickImage">pickImage</a></li><li><a href="global.html#renderBubblesetsthebackgroundcolorofmessagebubbles">renderBubble
+sets the background color of message bubbles</a></li><li><a href="global.html#renderCustomView">renderCustomView</a></li><li><a href="global.html#renderInputToolbar">renderInputToolbar</a></li><li><a href="global.html#saveMessages">saveMessages</a></li><li><a href="global.html#setUser">setUser</a></li><li><a href="global.html#styles">styles</a></li><li><a href="global.html#takePhoto">takePhoto</a></li><li><a href="global.html#uploadImage">uploadImage</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Sat Nov 16 2019 12:47:38 GMT-0500 (Eastern Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
